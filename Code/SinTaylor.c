@@ -6,64 +6,64 @@ int main (int argc, char **argv)
 {
 	system ("chcp 1253");
 	
-	double deg, rad;                                                           // Δήλωση μεταβλητών
+	double deg, rad;                                                           // Variable declaration
 	double sine;
 	double term, next_term, diff_terms, abs_diff_terms, first_sin_T;
 	double diff_sin_T, abs_diff_sin_T;
-	double sin_T = 0.0;                                                        // Αρχικοποίηση μεταβλητών
+	double sin_T = 0.0;                                                        // Variable initialization
 	int i;
-	int j = 1;                                                                 // Αρχικοποίηση μεταβλητών
-	int sign = -1;                                                             // Αρχικοποίηση μεταβλητών
+	int j = 1;                                                                 // Variable initialization
+	int sign = -1;                                                             // Variable initialization
 	
 	printf ("========================================================\n\n");
-	printf ("Υπολογισμός του ημιτόνου μίας γωνίας\n\n");       				   // Ο τίτλος του προγράμματος
+	printf ("Calculation of the sine of an angle\n\n");                       // Title of the program
 	printf ("========================================================\n\n");
-	printf ("Εισάγετε γωνία στο διάστημα του 1ου κύκλου [0,360]\n\n");             
-	printf ("Μοίρες  : ");                                                     
-	scanf ("%lf", &deg);                                                       // Εισαγωγή της γωνίας σε μοίρες
+	printf ("Enter angle in the range of the first cycle [0,360]\n\n");              
+	printf ("Degrees  : ");                                                     
+	scanf ("%lf", &deg);                                                       // Input the angle in degrees
 	printf ("\n--------------------------------------------------------\n\n"); 
-	rad = (pi * deg) / 180;                                                    // Μετατροπή της γωνίας από μοίρες σε ακτίνια
-	printf ("Μοίρες  : [%20.6lf]\n", deg);                                     // Εκτύπωση της γωνίας σε μοίρες
-	printf ("Ακτίνια : [%20.6lf]\n\n", rad);	                               // Εκτύπωση της γωνίας σε ακτίνια
-	sine = sin (rad);                                                          // Υπολογισμός του ημιτόνου της γωνίας με τη συνάρτηση "sin (ω)"
-	do                                                                         /* 1ος Βρόχος */
+	rad = (pi * deg) / 180;                                                    // Convert angle from degrees to radians
+	printf ("Degrees  : [%20.6lf]\n", deg);                                     // Print the angle in degrees
+	printf ("Radians  : [%20.6lf]\n\n", rad);	                               // Print the angle in radians
+	sine = sin (rad);                                                          // Calculate the sine of the angle using the "sin(ω)" function
+	do                                                                         /* 1st Loop */
 	{
-		term = 1;                                                              // Αρχικοποίηση μεταβλητής του πρώτου όρου, του δευτέρου ...  
-		for (i = 1 ; i <= j ; i++)                                             /* 2ος Βρόχος */
+		term = 1;                                                              // Initialize the first term of the series
+		for (i = 1 ; i <= j ; i++)                                             /* 2nd Loop */
 		{
-			term = term * (rad / i);                                           // Υπολογισμός του πρώτου όρου, του δευτέρου ... (ω^1 / 1!, ω^3 / 3! ...)
+			term = term * (rad / i);                                           // Calculate the first term, second term ... (ω^1 / 1!, ω^3 / 3! ...)
 		}
-		j = j + 2;                                                             // Αύξηση της βοηθητικής μεταβλητής για τον υπολογισμό του δευτέρου όρου, του τρίτου ...                                   
-		next_term =  term * ((rad * rad) / (j * (j - 1)));                     // Υπολογισμός του δευτέρου όρου, του τρίτου ... (ω^3 / 3!, ω^5 / 5! ...)
-		diff_terms = next_term - term;                                         // Υπολογισμός της διαφοράς του δευτέρου όρου με τον πρώτο, του τρίτου με τον δεύτερο ...
-		abs_diff_terms = fabs (diff_terms);                                    // Υπολογισμός της απόλυτης τιμής της διαφοράς 
-		if (j == 3)                                                            /* (~) 1η επανάληψη του 1ου βρόχου */ 
+		j = j + 2;                                                             // Increase the auxiliary variable for calculating the second term, third ...
+		next_term =  term * ((rad * rad) / (j * (j - 1)));                     // Calculate the second term, third ... (ω^3 / 3!, ω^5 / 5!)
+		diff_terms = next_term - term;                                         // Calculate the difference between the second term and the first, third and second ...
+		abs_diff_terms = fabs (diff_terms);                                    // Calculate the absolute value of the difference 
+		if (j == 3)                                                            /* (~) 1st iteration of the 1st loop */ 
 		{                                                                      /* ω^1 / 1! - ω^3 / 3! */ 
-			first_sin_T = term + (sign * next_term); 					       // Υπολογισμός του πρώτου αθροίσματος με το κατάλληλο πρόσημο "sign" 
-			sin_T = sin_T + first_sin_T;                                       // Καταχώρηση του αθροίσματος στη μεταβλητή "sin_t"
-			sign = sign * (-1);                                                // Αλλαγή προσήμου
+			first_sin_T = term + (sign * next_term); 					       // Calculate the first sum with the appropriate sign "sign" 
+			sin_T = sin_T + first_sin_T;                                       // Store the sum in the "sin_T" variable
+			sign = sign * (-1);                                                // Change sign
 		}
-		else                                                                   /* (~) 2η, 3η ... επανάληψη του 1ου βρόχου */
+		else                                                                   /* (~) 2nd, 3rd ... iteration of the 1st loop */
 		{                                                                      /* (ω^1 / 1! - ω^3 / 3!) + ω^5 / 5! ... */
-			sin_T = sin_T + (sign * next_term); 							   // Υπολογισμός του δευτέρου αθροίσματος, του τρίτου ... με το κατάλληλο πρόσημο "sign" 
-			sign = sign * (-1);                                                // Αλλαγή προσήμου
+			sin_T = sin_T + (sign * next_term); 							   // Calculate the second sum, third ... with the appropriate sign "sign" 
+			sign = sign * (-1);                                                // Change sign
 		}
 	}
 	while (abs_diff_terms > 0.000001);                                              
 	
-	printf ("Sine    : [%20.6lf]\n", sine);                                    // Εκτύπωση του ημιτόνου της γωνίας με την έτοιμη συνάρτηση "sin (ω)"                                                   
-	printf ("Taylor  : [%20.6lf]\n\n", sin_T);                                 // Εκτύπωση του ημιτόνου της γωνίας με την απειροσειρά "Taylor"
-	diff_sin_T = sine - sin_T;                                                 // Υπολογισμός της διαφοράς του ημιτόνου με την απειροσειρά "Taylor"
-	abs_diff_sin_T = fabs (diff_sin_T);                                        // Υπολογισμός της απόλυτης τιμής της διαφοράς του ημιτόνου με την απειροσειρά "Taylor"
-	if (abs_diff_sin_T <= 0.0000009)                                           /* (~) Αποδεκτή απόλυτη τιμή της διαφοράς του ημιτόνου με την απειροσειρά "Taylor" */
+	printf ("Sine    : [%20.6lf]\n", sine);                                    // Print the sine of the angle using the ready function "sin(ω)"                                                   
+	printf ("Taylor  : [%20.6lf]\n\n", sin_T);                                 // Print the sine of the angle using the Taylor series
+	diff_sin_T = sine - sin_T;                                                 // Calculate the difference between the sine and the Taylor series
+	abs_diff_sin_T = fabs (diff_sin_T);                                        // Calculate the absolute value of the difference between the sine and the Taylor series
+	if (abs_diff_sin_T <= 0.0000009)                                           /* (~) Acceptable absolute value of the difference between the sine and the Taylor series */
 	{
 		printf ("Sine ~= Taylor\n"); 
-		printf ("Οι δύο αριθμοί είναι σχεδόν ίσοι\n");                     
+		printf ("The two numbers are almost equal\n");                     
 	}
-	else                                                                       /* (~) Απορριπτέα απόλυτη τιμή της διαφοράς του ημιτόνου με την απειροσειρά "Taylor" */
+	else                                                                       /* (~) Unacceptable absolute value of the difference between the sine and the Taylor series */
 	{
 		printf ("Sine != Taylor\n");  
-		printf ("Οι δύο αριθμοί δεν είναι σχεδόν ίσοι\n");                                                   
+		printf ("The two numbers are not almost equal\n");                                                   
 	}
 	
 	return 0;                   

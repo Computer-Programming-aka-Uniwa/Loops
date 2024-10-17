@@ -5,16 +5,16 @@ int main (int argc, char **argv)
 {
 	system ("chcp 1253");
 	
-	int lines;                                                               // Δήλωση μεταβλητών                                          
+	int lines;                                                               // Variable declaration                                          
 	int i, j, k;
 	
 	printf ("===================================================\n\n");
-	printf ("Σχήματα με αστερίσκους\n\n");                                   // Τίτλος προγράμματος
+	printf ("Shapes with asterisks\n\n");                                     // Program title
 	printf ("===================================================\n\n");
-	printf ("Εισάγετε αριθμό γραμμών : ");                              
-	scanf ("%d", &lines);                                                    // Εισαγωγή του πλήθους των γραμμών
+	printf ("Enter number of lines: ");                              
+	scanf ("%d", &lines);                                                    // Input the number of lines
 		printf ("\n--------------------------------------------------\n\n");
-	for (i = 1 ; i <= lines ; i++)                                           /* 1ο σχήμα */
+	for (i = 1 ; i <= lines ; i++)                                           /* 1st shape */
 	{
 		for (j = 1 ; j <= i ; j++)
 		{
@@ -23,7 +23,7 @@ int main (int argc, char **argv)
 		printf ("\n");
 	}
 	printf ("\n--------------------------------------------------\n\n");
-	for (i = 0 ; i < lines ; i++)                                            /* 2ο σχήμα */
+	for (i = 0 ; i < lines ; i++)                                            /* 2nd shape */
 	{
 		for (j = lines - 1 ; j > i ; j--)
 		{
@@ -36,7 +36,7 @@ int main (int argc, char **argv)
 		printf ("\n");
 	}
 		printf ("\n--------------------------------------------------\n\n");
-	for (i = 0 ; i < lines ; i++)                                            /* 3ο σχήμα */
+	for (i = 0 ; i < lines ; i++)                                            /* 3rd shape */
 	{
 		for (j = lines - 1 ; j > i ; j--)
 		{
@@ -49,27 +49,27 @@ int main (int argc, char **argv)
 		printf ("\n");
 	}
 	printf ("\n--------------------------------------------------\n\n");
-	for (i = 0 ; i < lines ; i++)                                            /* 4ο σχήμα */
+	for (i = 0 ; i < lines ; i++)                                            /* 4th shape */
 	{
 		for (j = 0 ; j < lines ; j++)
 		{
-			if (i == 0 || j == 0 || i == lines - 1 || j == lines - 1)        /* (~) Σημείο εντός της περιμέτρου του σχήματος */
+			if (i == 0 || j == 0 || i == lines - 1 || j == lines - 1)        /* (~) Point on the perimeter of the shape */
 			{
 				printf ("*");
 			}
-			else													         /* (~) Σημείο εκτός της περιμέτρου του σχήματος */
+			else													         /* (~) Point inside the perimeter of the shape */
 			{
-				if (i == j)                                                  /* (!) Σημείο εντός της κύριας διαγωνίου */
+				if (i == j)                                                  /* (!) Point on the main diagonal */
 				{
 					printf (".");
 				}
-				else                                                         /* (!) Σημείο εκτός της κύριας διαγωνίου */
+				else                                                         /* (!) Point off the main diagonal */
 				{
-					if (i + j == lines - 1)                                  /* (+) Σημείο εντός της δευτερεύουσας διαγωνίου */
+					if (i + j == lines - 1)                                  /* (+) Point on the secondary diagonal */
 					{
 						printf (".");
 					}
-					else                                                     /* (+) Σημείο εκτός της δευτερεύουσας διαγωνίου */
+					else                                                     /* (+) Point off the secondary diagonal */
 					{
 						printf (" ");
 					}

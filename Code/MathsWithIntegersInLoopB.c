@@ -5,71 +5,71 @@ int main (int argc, int **argv)
 {
 	system ("chcp 1253");
 
-	int n;                         	                                          // Δήλωση μεταβλητών										  
+	int n;                         	                                          // Variable declaration										  
 	int pow;
-	int evens = 0;                                                            // Αρχικοποίηση μεταβλητών
-	int neg = 0;										                      // Αρχικοποίηση μεταβλητών
-	int prod = 1;                                                             // Αρχικοποίηση μεταβλητών
-	int pos = 0;                                                              // Αρχικοποίηση μεταβλητών
-	int sum = 0;									                          // Αρχικοποίηση μεταβλητών
+	int evens = 0;                                                            // Variable initialization
+	int neg = 0;										                      // Variable initialization
+	int prod = 1;                                                             // Variable initialization
+	int pos = 0;                                                              // Variable initialization
+	int sum = 0;									                          // Variable initialization
 	float avg;
  	
 	printf ("===================================================\n\n");
-	printf ("Μαθηματικές πράξεις με ακέραιους αριθμούς\n\n");                 // Τίτλος του προγράμματος
+	printf ("Mathematical operations with integers\n\n");                      // Program title
 	printf ("===================================================\n\n"); 	
-	do 			                                                              /* Βρόχος */
+	do 			                                                              /* Loop */
 	{
 		printf ("--------------------------------------------------\n\n");
-		printf ("Εισάγετε ακέραιο αριθμό : ");                              
-		scanf ("%d", &n);                                                     // Εισαγωγή των ακεραίων αριθμών
+		printf ("Enter an integer: ");                              
+		scanf ("%d", &n);                                                     // Input integer numbers
 		printf ("\n--------------------------------------------------\n\n");
-		printf ("Ο ακέραιος αριθμός     : [%20d]\n\n", n);                    // Εκτύπωση των ακεραίων αριθμών
-		if (n != 0)	                                                          /* (~) Εισαγωγή τιμής διάφορης του "0" */
+		printf ("The integer: [%20d]\n\n", n);                                 // Print integer numbers
+		if (n != 0)	                                                          /* (~) Input a value different from "0" */
 		{
-			if (n % 2 != 0)                                                   /* (!) Εισαγωγή περιττού αριθμού */
+			if (n % 2 != 0)                                                   /* (!) Odd number input */
 			{
-				pow = n * n;                                                  // Υπολογισμός του τετραγώνου του περιττού
-				printf ("Τετράγωνο περιττού     : [%20d]\n\n", pow);          // Εκτύπωση του τετραγώνου του περιττού
-				printf ("\nΠεριττός αριθμός\n");
+				pow = n * n;                                                  // Calculate the square of the odd number
+				printf ("Square of odd number: [%20d]\n\n", pow);              // Print the square of the odd number
+				printf ("\nOdd number\n");
 			}
-			else 										                      /* (!) Εισαγωγή άρτιου αριθμού */	
+			else 										                      /* (!) Even number input */	
 			{
-				evens++;								                      // Υπολογισμός του πλήθους των άρτιων αριθμών
-				printf ("\nΆρτιος αριθμός\n");
+				evens++;								                      // Count the number of even numbers
+				printf ("\nEven number\n");
 			}
-			if (n > 0)									                      /* (+) Εισαγωγή θετικού αριθμού */
+			if (n > 0)									                      /* (+) Positive number input */
 			{
-				pos++;							                              // Υπολογισμός του πλήθους των θετικών αριθμών
-				sum = sum + n;							                      // Υπολογισμός του αθροίσματος των θετικών αριθμών 
-				avg = (float) sum / pos; 			                          // Υπολογισμός του μέσου όρου των θετικών αριθμών
+				pos++;							                              // Count the number of positive numbers
+				sum = sum + n;							                      // Sum of positive numbers 
+				avg = (float) sum / pos; 			                          // Calculate the average of positive numbers
 			}
-			else										                      /* (+) Εισαγωγή αρνητικού αριθμού */
+			else										                      /* (+) Negative number input */
 			{
-				neg++;							                              // Υπολογισμός του πλήθους των αρνητικών αριθμών
-				prod = prod * n;                                              // Υπολογισμός του γινομένου των αρνητικών αριθμών
+				neg++;							                              // Count the number of negative numbers
+				prod = prod * n;                                              // Calculate the product of negative numbers
 			}
 		}
-		else											                      /* (~) Εισαγωγή  της τιμής "0" */
+		else											                      /* (~) Input value of "0" */
 		{
-			printf ("\n~Τέλος βρόχου~\n");                
+			printf ("\n~End of loop~\n");                
 	 	}
 	}
 	while (n != 0);                                        
-	
-	if (neg != 0)									                          /* (-) Ένας ή περισσότεροι αρνητικοί αριθμοί */
+        
+	if (neg != 0)									                          /* (-) One or more negative numbers */
 	{													   
 		printf ("--------------------------------------------------\n\n"); 
-		printf ("Πλήθος άρτιων          : [%20d]\n", evens);                  // Εκτύπωση του πλήθους των άρτιων αριθμών
-		printf ("Μέσος όρος θετικών     : [%20.6f]\n", avg);                  // Εκτύπωση του μέσου όρου των θετικών αριθμών
-		printf ("Γινόμενο αρνητικών     : [%20d]\n", prod);                   // Εκτύπωση του γινομένου των αρνητικών αριθμών
+		printf ("Number of even numbers: [%20d]\n", evens);                    // Print the number of even numbers
+		printf ("Average of positive numbers: [%20.6f]\n", avg);                // Print the average of positive numbers
+		printf ("Product of negative numbers: [%20d]\n", prod);                 // Print the product of negative numbers
 	}
-	else												                      /* (-) Κανένας αρνητικός αριθμός */
+	else												                      /* (-) No negative numbers */
 	{
 		printf ("--------------------------------------------------\n\n"); 
-		prod--;                                                               // Εκχώρηση τιμής "0" στη μεταβλητή "prod"
-		printf ("Πλήθος άρτιων          : [%20d]\n", evens);                  // Εκτύπωση του πλήθους των άρτιων αριθμών
-		printf ("Μέσος όρος θετικών     : [%20.6f]\n", avg);                  // Εκτύπωση του μέσου όρου των θετικών αριθμών
-		printf ("Γινόμενο αρνητικών     : [%20d]\n", prod);                   // Εκτύπωση του γινομένου των αρνητικών αριθμών
+		prod--;                                                               // Assign value "0" to variable "prod"
+		printf ("Number of even numbers: [%20d]\n", evens);                    // Print the number of even numbers
+		printf ("Average of positive numbers: [%20.6f]\n", avg);               // Print the average of positive numbers
+		printf ("Product of negative numbers: [%20d]\n", prod);                // Print the product of negative numbers
 	}
 	
 	return 0;
