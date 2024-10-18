@@ -16,10 +16,10 @@ For the detailed Documentation, click the link:
 This project explores iterative structures (loops) in the C programming language, with a focus on `for`, `while`, `do-while` loops, and control commands like `break` and `continue`. It includes theoretical explanations, practical examples, and source code documentation to demonstrate the use of loops in various scenarios.
 
 ## Course Information
-- **Course**: Computer Programming
+- **Course**: [Computer Programming](https://ice.uniwa.gr/education/undergraduate/courses/computer-programming/)
 - **Semester**: 1
 - **Program**: [UNIWA](https://www.uniwa.gr/)
-- **Department**: [Information and Computer Engineering](https://ice.uniwa.gr/)
+- **Department**: [Informatics and Computer Engineering](https://ice.uniwa.gr/)
 - **Instructor**: [Georgios Meletiou](https://ice.uniwa.gr/emd_person/17562/)
 
 ## Student Information
