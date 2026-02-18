@@ -94,7 +94,8 @@ This project explores the fundamental concepts of iterative structures (loops) i
 |     3.2 | `src/MathsWithIntegersInLoopB.c` | Integer operations using `for`/`while` loops (example B) |
 |     3.3 | `src/SinTaylor.c`                | Computing sine using Taylor series in loops              |
 |     3.4 | `src/Stars.c`                    | Loop exercises: printing patterns (stars)                |
-|       4 | `README.md`                      | Repository overview and instructions                     |
+|       4 | `README.md`                      | Project documentation                                    |
+|       5 | `INSTALL.md`                     | Usage instructions                                       |
 
 ---
 
